@@ -10,6 +10,13 @@ function App() {
     setDane(result);
   };
 
+  const drop = async (id) => {
+    await fetch(`http://localhost:8000/users/${id}`, {
+      method: "DELETE"
+    });
+    getData();
+  };
+
   useEffect(() => {
     getData();
   }, []);
@@ -26,6 +33,7 @@ function App() {
             <th>płeć</th>
             <th>miasto</th>
             <th>Podgląd</th>
+            <th>Usuń</th>
           </tr>
         </thead>
         <tbody>
@@ -39,6 +47,9 @@ function App() {
               <td>{item.city}</td>
               <td>
                 <a href={`./users/${item.id}`}>Podgląd</a>
+              </td>
+              <td>
+                <button onClick={(e) => drop(item.id)}>Usuń</button>
               </td>
             </tr>
           ))}

@@ -30,4 +30,16 @@ app.get('/users/:id', (req, res) => {
     })
 })
 
+app.get('/users/:id', (req, res) => {
+    let id = req.params.id
+    conn.query(`DELETE FROM users WHERE id='${id}'`, (error, result) => {
+        if(error) {
+            console.log('Błąd połączenia z bazą danych')
+            return
+        }
+        console.log(result)
+        res.json(result)
+    })
+})
+
 app.listen(8000)
