@@ -1,0 +1,6 @@
+# Ignore node_modules from all projects (including app_workspace)
+node_modules/
+
+# Ignore logs, temporary files, etc.
+*.log
+*.tmp
