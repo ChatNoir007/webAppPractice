@@ -2,7 +2,7 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-function Users() {
+function User() {
   const [dane, setDane] = useState([]);
   let { id } = useParams();
 
@@ -46,4 +46,4 @@ function Users() {
   );
 }
 
-export default Users;
+export default User;
